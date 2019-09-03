@@ -6,6 +6,7 @@ class Ticket:
         self.start_date = start_date
         self.day = day
         self.end_date = end_date
+        self.money_back = None
 
     def __str__(self):
         return 'New ticket: {} - {} (days: {})'.format(self.start_date, self.end_date, self.day)
