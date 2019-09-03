@@ -1,4 +1,6 @@
 class Ticket:
+    #handling fee is 20% but not more than 50 zl
+    handling_fee_percent = 0,2
 
     def __init__(self, start_date = None, day = 0, end_date = None):
         self.start_date = start_date
