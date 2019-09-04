@@ -16,5 +16,18 @@ class Ticket:
         self.money_back = None
         self.ticket_price = ticket_price
 
+    def count_money_back(self):
+        self.handling_fee = self.handling_fee_percent * self.ticket_price
+        if self.handling_fee > 50:
+            self.handling_fee = 50
+
+        self.cancled_days = self.end_date - self.cancel_date
+        self.money_back = (self.ticket_price - self.handling_fee)/self.day * int(self.cancled_days.days)
+        return 'Do zwrotu: {} zł.' \
+               '\nOpłata manipulacyjna: {} zł' \
+               '\nKoszt jednego dnia: {} zł'.format(self.money_back,
+                                                 self.handling_fee,
+                                                 (self.ticket_price - self.handling_fee)/self.day)
+
     def __str__(self):
         return 'New ticket: {} - {} (days: {})'.format(self.start_date, self.end_date, self.day)
