@@ -1,3 +1,9 @@
+import datetime
+
+def convert_date(date):
+    year,month,day = date.split('-')
+    return datetime.date(int(year), int(month), int(day))
+
 class Ticket:
     #handling fee is 20% but not more than 50 zl
     handling_fee_percent = 0,2
