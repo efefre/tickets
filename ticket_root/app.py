@@ -35,8 +35,13 @@ class Ticket:
 
 def menu():
     print("""
+    ******************************************************************************************************
     Program oblicza ile otrzymasz pieniędzy za zwrócenie biletu długookresowego (30/90 dni) w Warszawie.
-    Aby obliczyć kwotę zwrotu, potrzebuję kilku informacji: 
+    Aby obliczyć kwotę zwrotu, potrzebuję kilku informacji.
+
+    Jeżeli nie pamiętasz daty aktywacji biletu, to przejdź do kolejnego pytania przyciskiem <<enter>>.
+    W takiej sytuacji potrzebna będzie data ważności biletu i rodzaj biletu (30/90 dni).
+    ******************************************************************************************************
     """)
 
     start_date = input('Kiedy aktywowałaś/aktywowałeś bilet (DD-MM-YYYY)? ')
