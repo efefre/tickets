@@ -31,3 +31,16 @@ class Ticket:
 
     def __str__(self):
         return 'Nowy bilet {} - {} (dni: {})'.format(self.start_date, self.end_date, self.day)
+
+
+def menu():
+    print("""
+    Program oblicza ile otrzymasz pieniędzy za zwrócenie biletu długookresowego (30/90 dni) w Warszawie.
+    Aby obliczyć kwotę zwrotu, potrzebuję kilku informacji: 
+    """)
+
+    start_date = input('Kiedy aktywowałaś/aktywowałeś bilet (DD-MM-YYYY)? ')
+    day = input('Na ile dni kupiłaś/kupiłeś bilet (30/90)? ')
+    end_date = input('Do kiedy bilet jest ważny (DD-MM-YYYY)? ')
+    cancel_date = input('Do kiedy chcesz korzystać z biletu (DD-MM-YYYY)? ')
+    ticket_price = input('Ile zapłaciłaś/zapłaciłeś za bilet? ')
