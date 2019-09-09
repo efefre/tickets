@@ -45,7 +45,14 @@ def menu():
     """)
 
     start_date = input('Kiedy aktywowałaś/aktywowałeś bilet (DD-MM-YYYY)? ')
+    if start_date == '':
+        start_date = None
+        end_date = input('Do kiedy bilet jest ważny (DD-MM-YYYY)? ')
+        while end_date == '':
+            print('-- Odpowiedź na to pytanie jest wymagana! --')
+            end_date = input('Do kiedy bilet jest ważny (DD-MM-YYYY)? ')
+    else:
+        end_date = None
     day = input('Na ile dni kupiłaś/kupiłeś bilet (30/90)? ')
-    end_date = input('Do kiedy bilet jest ważny (DD-MM-YYYY)? ')
     cancel_date = input('Do kiedy chcesz korzystać z biletu (DD-MM-YYYY)? ')
     ticket_price = input('Ile zapłaciłaś/zapłaciłeś za bilet? ')
