@@ -49,9 +49,14 @@ def menu():
     if start_date == '':
         start_date = None
         end_date = input('Do kiedy bilet jest ważny (DD-MM-YYYY)? ')
-        while end_date == '':
-            print('-- Odpowiedź na to pytanie jest wymagana! --')
-            end_date = input('Do kiedy bilet jest ważny (DD-MM-YYYY)? ')
+        while True:
+            try:
+                end_date = convert_date(end_date)
+                break
+            except ValueError:
+                print('--- Wprowadzono błędną datę ważności biletu ---')
+                end_date = input('Do kiedy bilet jest ważny (DD-MM-YYYY)? ')
+
     else:
         while True:
             try:
