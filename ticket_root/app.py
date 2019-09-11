@@ -45,6 +45,7 @@ def menu():
     """)
 
     start_date = input('Kiedy aktywowałaś/aktywowałeś bilet (DD-MM-YYYY)? ')
+
     if start_date == '':
         start_date = None
         end_date = input('Do kiedy bilet jest ważny (DD-MM-YYYY)? ')
@@ -52,6 +53,13 @@ def menu():
             print('-- Odpowiedź na to pytanie jest wymagana! --')
             end_date = input('Do kiedy bilet jest ważny (DD-MM-YYYY)? ')
     else:
+        while True:
+            try:
+                start_date = convert_date(start_date)
+                break
+            except ValueError:
+                print('--- Wprowadzono błędną datę aktywacji biletu ---')
+                start_date = input('Kiedy aktywowałaś/aktywowałeś bilet (DD-MM-YYYY)? ')
         end_date = None
 
     day = int(input('Na ile dni kupiłaś/kupiłeś bilet (30/90)? '))
