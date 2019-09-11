@@ -53,6 +53,10 @@ def menu():
             end_date = input('Do kiedy bilet jest ważny (DD-MM-YYYY)? ')
     else:
         end_date = None
-    day = input('Na ile dni kupiłaś/kupiłeś bilet (30/90)? ')
+
+    day = int(input('Na ile dni kupiłaś/kupiłeś bilet (30/90)? '))
+    while day != 30 and day != 90:
+        print('--- Wprowadzono błędną wartość ---')
+        day = int(input('Na ile dni kupiłaś/kupiłeś bilet (30/90)? '))
     cancel_date = input('Do kiedy chcesz korzystać z biletu (DD-MM-YYYY)? ')
     ticket_price = input('Ile zapłaciłaś/zapłaciłeś za bilet? ')
