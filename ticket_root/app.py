@@ -1,7 +1,7 @@
 import datetime
 
 def convert_date(date):
-    year,month,day = date.split('-')
+    day,month,year = date.split('-')
     return datetime.date(int(year), int(month), int(day))
 
 class Ticket:
