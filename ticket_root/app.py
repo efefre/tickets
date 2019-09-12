@@ -22,7 +22,7 @@ class Ticket:
             self.handling_fee = 50
 
         self.cancled_days = self.end_date - self.cancel_date
-        self.money_back = float(self.ticket_price - self.handling_fee)/self.day * int(self.cancled_days.days)
+        self.money_back = float((self.ticket_price - self.handling_fee)/self.day * int(self.cancled_days.days))
         return '\nDo zwrotu: {:.2f} zł.' \
                '\nPoniesiony koszt: {:.2f} zł' \
                '\n\nOpłata manipulacyjna: {:.2f} zł' \
