@@ -86,11 +86,14 @@ def menu():
     while True:
         try:
             cancel_date = convert_date(cancel_date)
-            if cancel_date > start_date:
-                break
-            else:
-                print('-- Wprowadzono błędną datę. Nie można zwrócić biletu przed jego aktywacją i w dniu jego aktywacji --')
+            if cancel_date < start_date:
+                print('-- Wprowadzono błędną datę. Nie można zwrócić biletu przed jego aktywacją --')
                 cancel_date = input('Do kiedy chcesz korzystać z biletu (DD-MM-YYYY)? ')
+            elif cancel_date >= end_date:
+                print('-- Wprowadzono błędną datę. Nie można zwrócić biletu po terminie ważności --')
+                cancel_date = input('Do kiedy chcesz korzystać z biletu (DD-MM-YYYY)? ')
+            else:
+                break
         except ValueError:
             print('--- Wprowadzono błędną datę ---')
             cancel_date = input('Do kiedy chcesz korzystać z biletu (DD-MM-YYYY)? ')
