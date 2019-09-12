@@ -71,8 +71,11 @@ def menu():
 
     day = int(input('Na ile dni kupiłaś/kupiłeś bilet (30/90)? '))
 
+    if start_date == None:
+        start_date = end_date - datetime.timedelta(days=day) - datetime.timedelta(days=1)
+
     if end_date == None:
-        end_date = start_date + datetime.timedelta(days=day)
+        end_date =  start_date + datetime.timedelta(days=day) - datetime.timedelta(days=1)
 
     while day != 30 and day != 90:
         print('--- Wprowadzono błędną wartość ---')
