@@ -91,3 +91,7 @@ def menu():
             cancel_date = input('Do kiedy chcesz korzystać z biletu (DD-MM-YYYY)? ')
 
     ticket_price = input('Ile zapłaciłaś/zapłaciłeś za bilet? ')
+    if ',' in ticket_price:
+        ticket_price = ticket_price.replace(',','.')
+
+    ticket_price = round(float(ticket_price),2)
