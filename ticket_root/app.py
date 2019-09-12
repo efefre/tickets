@@ -1,9 +1,5 @@
 import datetime
 
-def convert_date(date):
-    day,month,year = date.split('-')
-    return datetime.date(int(year), int(month), int(day))
-
 class Ticket:
     #handling fee is 20% but not more than 50 zl
     handling_fee_percent = 0.2
@@ -15,6 +11,11 @@ class Ticket:
         self.cancel_date = cancel_date
         self.money_back = None
         self.ticket_price = ticket_price
+
+    @staticmethod
+    def convert_date(date):
+        day, month, year = date.split('-')
+        return datetime.date(int(year), int(month), int(day))
 
     def count_money_back(self):
         self.handling_fee = self.handling_fee_percent * self.ticket_price
@@ -53,7 +54,7 @@ def menu():
         end_date = input('Do kiedy bilet jest ważny (DD-MM-YYYY)? ')
         while True:
             try:
-                end_date = convert_date(end_date)
+                end_date = Ticket.convert_date(end_date)
                 break
             except ValueError:
                 print('--- Wprowadzono błędną datę ważności biletu ---')
@@ -62,7 +63,7 @@ def menu():
     else:
         while True:
             try:
-                start_date = convert_date(start_date)
+                start_date = Ticket.convert_date(start_date)
                 break
             except ValueError:
                 print('--- Wprowadzono błędną datę aktywacji biletu ---')
@@ -85,7 +86,7 @@ def menu():
 
     while True:
         try:
-            cancel_date = convert_date(cancel_date)
+            cancel_date = Ticket.convert_date(cancel_date)
             if cancel_date < start_date:
                 print('-- Wprowadzono błędną datę. Nie można zwrócić biletu przed jego aktywacją --')
                 cancel_date = input('Do kiedy chcesz korzystać z biletu (DD-MM-YYYY)? ')
