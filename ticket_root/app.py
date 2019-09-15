@@ -101,3 +101,6 @@ def questions():
         ticket_price = ticket_price.replace(',','.')
 
     ticket_price = round(float(ticket_price),2)
+
+    new_ticket = Ticket(start_date,day,end_date,cancel_date,ticket_price)
+    print(new_ticket.count_money_back())
