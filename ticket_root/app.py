@@ -104,3 +104,11 @@ def questions():
 
     new_ticket = Ticket(start_date,day,end_date,cancel_date,ticket_price)
     print(new_ticket.count_money_back())
+
+def start_message():
+    message = input("""\nProgram oblicza ile otrzymasz pieniędzy za zwrócenie biletu długookresowego (30/90 dni) w Warszawie.
+    \nCzy chcesz uruchomić program?
+    T - tak
+    N - nie
+    \nTwój wybór to: """)
+    return message
