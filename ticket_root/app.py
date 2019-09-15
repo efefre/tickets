@@ -114,14 +114,15 @@ def start_message():
     return message
 
 # Run program
-user_choice = start_message()
-while True:
-    if user_choice.upper() == 'T':
-        questions()
-        break
-    elif user_choice.upper() == 'N':
-        print('Program został zamknięty')
-        break
-    else:
-        print('\n\n-- Uwaga! Dokonaj ponownego wyboru. Możesz wybrać T lub N. Twój ostatni wybór to: {} --'.format(user_choice))
-        user_choice = start_message()
+if __name__ == '__main__':
+    user_choice = start_message()
+    while True:
+        if user_choice.upper() == 'T':
+            questions()
+            break
+        elif user_choice.upper() == 'N':
+            print('Program został zamknięty')
+            break
+        else:
+            print('\n\n-- Uwaga! Dokonaj ponownego wyboru. Możesz wybrać T lub N. Twój ostatni wybór to: {} --'.format(user_choice))
+            user_choice = start_message()
