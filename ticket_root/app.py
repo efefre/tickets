@@ -22,6 +22,12 @@ class Ticket:
         if self.handling_fee > 50:
             self.handling_fee = 50
 
+        if self.cancel_date < self.start_date:
+            return 'Wprowadzono błędną datę. Nie można zwrócić biletu przed jego aktywacją'
+
+        if self.cancel_date > self.end_date:
+            return 'Wprowadzono błędną datę. Nie można zwrócić biletu po terminie ważności'
+
         self.cancled_days = self.end_date - self.cancel_date
         self.money_back = float((self.ticket_price - self.handling_fee)/self.day * int(self.cancled_days.days))
         return '\nKoszt jednego dnia: {:.2f} zł' \
