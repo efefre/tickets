@@ -21,7 +21,8 @@ def test_create_object():
                              ('01-09-2019',30,'30-09-2019','15-09-2019',100, 40),
                              ('01-09-2019',30,'30-09-2019','30-09-2019',100, 0),
                              ('01-09-2019',30,'30-09-2019','15-08-2019',100, 'Wprowadzono błędną datę. Nie można zwrócić biletu przed jego aktywacją'),
-                             ('01-09-2019',30,'30-09-2019','15-11-2019',100, 'Wprowadzono błędną datę. Nie można zwrócić biletu po terminie ważności')
+                             ('01-09-2019',30,'30-09-2019','15-11-2019',100, 'Wprowadzono błędną datę. Nie można zwrócić biletu po terminie ważności'),
+                             ('01-09-2019',90,'29-11-2019','15-09-2019',330, 233.33)
                          ]
                          )
 def test_count_money_back(start_date, days,end_date, cancel_date, price,result):
