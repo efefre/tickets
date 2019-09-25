@@ -22,8 +22,14 @@ class Ticket:
         if self.handling_fee > 50:
             self.handling_fee = 50
 
+        if self.cancel_date < self.start_date:
+            return 'Wprowadzono błędną datę. Nie można zwrócić biletu przed jego aktywacją'
+
+        if self.cancel_date > self.end_date:
+            return 'Wprowadzono błędną datę. Nie można zwrócić biletu po terminie ważności'
+
         self.cancled_days = self.end_date - self.cancel_date
-        self.money_back = float((self.ticket_price - self.handling_fee)/self.day * int(self.cancled_days.days))
+        self.money_back = round(float((self.ticket_price - self.handling_fee)/self.day * int(self.cancled_days.days)),2)
         return '\nKoszt jednego dnia: {:.2f} zł' \
                '\nOpłata manipulacyjna: {:.2f} zł' \
                '\n\nDo zwrotu: {:.2f} zł.' \
@@ -114,14 +120,15 @@ def start_message():
     return message
 
 # Run program
-user_choice = start_message()
-while True:
-    if user_choice.upper() == 'T':
-        questions()
-        break
-    elif user_choice.upper() == 'N':
-        print('Program został zamknięty')
-        break
-    else:
-        print('\n\n-- Uwaga! Dokonaj ponownego wyboru. Możesz wybrać T lub N. Twój ostatni wybór to: {} --'.format(user_choice))
-        user_choice = start_message()
+if __name__ == '__main__':
+    user_choice = start_message()
+    while True:
+        if user_choice.upper() == 'T':
+            questions()
+            break
+        elif user_choice.upper() == 'N':
+            print('Program został zamknięty')
+            break
+        else:
+            print('\n\n-- Uwaga! Dokonaj ponownego wyboru. Możesz wybrać T lub N. Twój ostatni wybór to: {} --'.format(user_choice))
+            user_choice = start_message()
