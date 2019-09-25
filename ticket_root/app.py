@@ -29,7 +29,7 @@ class Ticket:
             return 'Wprowadzono błędną datę. Nie można zwrócić biletu po terminie ważności'
 
         self.cancled_days = self.end_date - self.cancel_date
-        self.money_back = float((self.ticket_price - self.handling_fee)/self.day * int(self.cancled_days.days))
+        self.money_back = round(float((self.ticket_price - self.handling_fee)/self.day * int(self.cancled_days.days)),2)
         return '\nKoszt jednego dnia: {:.2f} zł' \
                '\nOpłata manipulacyjna: {:.2f} zł' \
                '\n\nDo zwrotu: {:.2f} zł.' \
