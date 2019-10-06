@@ -30,13 +30,12 @@ class Ticket:
 
         self.cancled_days = self.end_date - self.cancel_date
         self.money_back = round(float((self.ticket_price - self.handling_fee)/self.day * int(self.cancled_days.days)),2)
-        return '\nKoszt jednego dnia: {:.2f} zł' \
-               '\nOpłata manipulacyjna: {:.2f} zł' \
+        return '\nOpłata manipulacyjna: {:.2f} zł' \
                '\n\nDo zwrotu: {:.2f} zł.' \
-               '\nPoniesiony koszt: {:.2f} zł'.format((self.ticket_price - self.handling_fee)/self.day,
-                                                       self.handling_fee,
+               '\nPoniesiony koszt: {:.2f} zł ({} zł/dzień) '.format(self.handling_fee,
                                                        self.money_back,
-                                                       self.ticket_price - self.money_back)
+                                                       self.ticket_price - self.money_back,
+                                                       round((self.ticket_price - self.money_back)/int((self.cancel_date-self.start_date).days +1),2),)
 
     def __str__(self):
         return 'Nowy bilet {} - {} (dni: {})'.format(self.start_date, self.end_date, self.day)
