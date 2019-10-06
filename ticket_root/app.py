@@ -1,4 +1,4 @@
-import datetime
+import pendulum
 
 class Ticket:
     #handling fee is 20% but not more than 50 zl
@@ -15,7 +15,7 @@ class Ticket:
     @staticmethod
     def convert_date(date):
         day, month, year = date.split('-')
-        return datetime.date(int(year), int(month), int(day))
+        return pendulum.date(int(year), int(month), int(day))
 
     def count_money_back(self):
         self.handling_fee = self.handling_fee_percent * self.ticket_price
@@ -35,7 +35,7 @@ class Ticket:
                '\nPoniesiony koszt: {:.2f} zł ({} zł/dzień) '.format(self.handling_fee,
                                                        self.money_back,
                                                        self.ticket_price - self.money_back,
-                                                       round((self.ticket_price - self.money_back)/int((self.cancel_date-self.start_date).days +1),2),)
+                                                       round((self.ticket_price - self.money_back)/int((self.cancel_date-self.start_date).days + 1),2),)
 
     def __str__(self):
         return 'Nowy bilet {} - {} (dni: {})'.format(self.start_date, self.end_date, self.day)
@@ -75,10 +75,10 @@ def questions():
     day = int(input('Na ile dni kupiłaś/kupiłeś bilet (30/90)? '))
 
     if start_date == None:
-        start_date = end_date - datetime.timedelta(days=day) - datetime.timedelta(days=1)
+        start_date = end_date - pendulum.duration(days=day) - pendulum.duration(days=1)
 
     if end_date == None:
-        end_date =  start_date + datetime.timedelta(days=day) - datetime.timedelta(days=1)
+        end_date =  start_date + pendulum.duration(days=day) - pendulum.duration(days=1)
 
     while day != 30 and day != 90:
         print('--- Wprowadzono błędną wartość ---')
