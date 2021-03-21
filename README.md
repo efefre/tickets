@@ -15,4 +15,4 @@ I did this project to practice object-oriented programming and testing (pytest) 
 
 
 ## Status
-Project is: _in progress_.
+Project is: _no longer continue_.
